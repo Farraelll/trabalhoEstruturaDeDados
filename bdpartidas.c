@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Cria lista de partidas
 BDPartidas* bdpartidas_criar() {
     BDPartidas* bdp = (BDPartidas*) malloc(sizeof(BDPartidas));
     if (bdp != NULL) {
@@ -11,10 +12,12 @@ BDPartidas* bdpartidas_criar() {
     return bdp;
 }
 
+// Libera a lista de partidas da memória
 void bdpartidas_liberar(BDPartidas* bdp) {
     free(bdp);
 }
 
+// Carrega as partidas para uma lista
 int bdpartidas_carregar(BDPartidas* bdp, const char* arquivo_csv) {
     FILE* f = fopen(arquivo_csv, "r");
     if (f == NULL) {
@@ -55,6 +58,7 @@ int bdpartidas_carregar(BDPartidas* bdp, const char* arquivo_csv) {
     return 0;
 }
 
+// Busca partida pelo indice
 Partida* bdpartidas_buscar_por_indice(BDPartidas* bdp, int index) {
     if (index >= 0 && index < bdp->num_partidas) {
         return &bdp->partidas[index];
@@ -62,6 +66,7 @@ Partida* bdpartidas_buscar_por_indice(BDPartidas* bdp, int index) {
     return NULL;
 }
 
+// Busca partidas numero de partidas
 int bdpartidas_get_num_partidas(BDPartidas* bdp) {
     return bdp->num_partidas;
 }
