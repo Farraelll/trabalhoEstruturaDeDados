@@ -34,7 +34,7 @@ void ler_string(char *str, int tamanho)
 
 int main()
 {
-    // 1. Criar os TADs
+    // Cria os TADs
     BDTimes *bdt = bdtimes_criar();
     BDPartidas *bdp = bdpartidas_criar();
     if (bdt == NULL || bdp == NULL)
@@ -43,7 +43,7 @@ int main()
         return 1;
     }
 
-    // 2. Carregar dados dos arquivos CSV
+    // Carrega dados dos arquivos CSV
     if (bdtimes_carregar(bdt, "times.csv") != 0)
     {
         fprintf(stderr, "Nao foi possivel carregar 'times.csv'. Encerrando.\n");
@@ -84,7 +84,7 @@ int main()
         case '2':
             do_consultar_partidas(bdp, bdt);
             break;
-        case '3': // Funcoes desabilitadas
+        case '3':
         case '4':
         case '5':
             printf("Opcao desabilitada nesta versao (Parte I).\n");
@@ -125,7 +125,7 @@ void exibir_menu()
     printf("Escolha uma opcao: ");
 }
 
-// Funcao 1: Consultar time por prefixo
+// Consulta time por prefixo
 void do_consultar_time(BDTimes *bdt)
 {
     char prefixo[50];
@@ -157,7 +157,7 @@ void do_consultar_time(BDTimes *bdt)
     }
 }
 
-// Funcao 2: Consultar partidas por time
+// Consulta partidas por time
 void do_consultar_partidas(BDPartidas *bdp, BDTimes *bdt)
 {
     char buffer[10];
@@ -236,7 +236,7 @@ void do_consultar_partidas(BDPartidas *bdp, BDTimes *bdt)
     }
 }
 
-// Funcao 6: Imprime tabela de classificacao
+// Imprime tabela de classificacao
 void do_imprimir_tabela(BDTimes *bdt)
 {
     printf("[Sistema]\n");
