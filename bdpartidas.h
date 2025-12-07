@@ -3,20 +3,28 @@
 
 #include "partida.h"
 
-// Tamanho pre-definido para o vetor
-#define MAX_PARTIDAS 100
+// No da lista encadeada de partidas
+typedef struct NodePartida {
+    Partida partida;
+    struct NodePartida* prox;
+} NodePartida;
 
-// Estrutura para informacoes sobre as partidas
 typedef struct {
-    Partida partidas[MAX_PARTIDAS];
+    NodePartida* inicio;
     int num_partidas;
 } BDPartidas;
 
-// Prototipos das Funcoes
 BDPartidas* bdpartidas_criar();
 void bdpartidas_liberar(BDPartidas* bdp);
 int bdpartidas_carregar(BDPartidas* bdp, const char* arquivo_csv);
-Partida* bdpartidas_buscar_por_indice(BDPartidas* bdp, int index);
-int bdpartidas_get_num_partidas(BDPartidas* bdp);
+
+// Novas funcoes para Parte II
+void bdpartidas_inserir(BDPartidas* bdp, int t1, int t2, int g1, int g2);
+int bdpartidas_remover(BDPartidas* bdp, int id);
+Partida* bdpartidas_buscar_por_id(BDPartidas* bdp, int id);
+int bdpartidas_atualizar(BDPartidas* bdp, int id, int g1, int g2);
+
+// Iterador para o main (substitui o loop por indice)
+NodePartida* bdpartidas_get_inicio(BDPartidas* bdp);
 
 #endif

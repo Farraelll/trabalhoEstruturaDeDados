@@ -1,7 +1,6 @@
 #ifndef PARTIDA_H
 #define PARTIDA_H
 
-// Define a estrutura para uma partida
 typedef struct {
     int id;
     int time1_id;
