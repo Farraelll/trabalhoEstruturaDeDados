@@ -1,5 +1,5 @@
 # Trabalho de Programação - Campeonato Computacional de Futebol
-
+## Alunos: Rafael e João Vitor.
 Este projeto é a implementação da Parte I do trabalho de programação, focado em um sistema simplificado em linguagem C para gerenciamento de dados de um campeonato de futebol[cite: 9].
 
 ## Como Executar
